@@ -29,11 +29,17 @@ int main()
 			}
 			
 			
-				cout << "Case #" << count << ":";
+				cout << "Case #" << count << ": "; //아니 띄어쓰기 하나는 오바잖아 ......
 				
 				for (int i = v.size() - 1; i >= 0; i--) {
-					cout << v[i] << " ";
-
+					
+					if (i == 0)
+					{
+						cout << v[i];
+					}
+					else {
+						cout << v[i] << " "; //여기도 마찬가지.......
+					}
 				}
 				cout << endl;
 				
