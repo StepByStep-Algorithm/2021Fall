@@ -1,49 +1,39 @@
 ﻿#include <iostream>
-#include <vector>
-#include <algorithm>
 #include <queue>
 using namespace std;
 int main()
 {
-    vector<int>v;
-    vector<int>q;
+    priority_queue<int>v;
+    
     int j;
     int n;
-     
+    int count = 0;
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-
     cin >> j;
     for (int i = 0; i < j; i++)
     { 
         cin >> n;
         if (n == 0)
         {
-            if (v.empty())
+            if (v.empty()==true)
             {
-                q.push_back(0);
+                cout <<0<<'\n';
             }
             else {
-                int max = *max_element(v.begin(), v.end());
-                
-                auto a = find(v.begin(), v.end(), max);
-                q.push_back(max);
-                 v.erase(a);
-   
+                cout << v.top() << '\n';
+                v.pop();
+                 
            }
-         
+                
         }
         else
         {
-           v.push_back(n);           
-        }
-           
+            v.push(n);
+        }          
     }
-    for(int i=0; i<q.size();i++)
-        {
-            cout<<q[i]<<'\n';
-       }
+   
 
     return 0;
 }
