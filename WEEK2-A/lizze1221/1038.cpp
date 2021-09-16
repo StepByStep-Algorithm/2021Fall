@@ -2,6 +2,7 @@
 using namespace std;
 
 int n;
+int tmp = 9;
 queue <long long> q;
 long long arr[1000001];
 
@@ -17,21 +18,18 @@ int main(){
         arr[i] = i;
     }
 
-    if(n >=0 && n < 10) cout << arr[n];
-    else if (n < 0) cout <<"-1";
-    else{
-       int tmp = 9;
+    while(tmp <= n){
+        long long num = q.front();
+        q.pop();
 
-       while(tmp <= n){
-           long long num = q.front();
-           q.pop();
-
-           for(int i=0;i<num;i++){
-               q.push(num*10 + i);
-               arr[++tmp] = num*10 + i;
-           }
-       }
-       cout << arr[n] <<"\n";
+        for(int i=0;i<num%10;i++){
+            q.push(num*10 + i);
+            arr[++tmp] = num*10 + i;
+        }
     }
+
+    if(!arr[n] && n) cout <<"-1\n";
+    else cout << arr[n]<<"\n";
+    
     return 0;
 }
