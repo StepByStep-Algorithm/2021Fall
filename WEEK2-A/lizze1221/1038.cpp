@@ -3,7 +3,6 @@ using namespace std;
 
 int n;
 int tmp = 9;
-queue <long long> q;
 long long arr[1000001];
 
 int main(){
@@ -13,23 +12,16 @@ int main(){
 
     cin >> n;
 
-    for(int i=1;i<10;i++) {
-        q.push(i);
-        arr[i] = i;
-    }
+    for(int i=1;i<10;i++) arr[i] = i;
 
-    while(tmp <= n){
-        long long num = q.front();
-        q.pop();
-
-        for(int i=0;i<num%10;i++){
-            q.push(num*10 + i);
-            arr[++tmp] = num*10 + i;
+    for(int i=1;i<=n;i++){
+        for(int j=0;j<(arr[i]%10);j++){
+            arr[++tmp] = arr[i]*10 + j;
         }
     }
 
-    if(!arr[n] && n) cout <<"-1\n";
-    else cout << arr[n]<<"\n";
-    
+    if(arr[n]!=0 && tmp >= n) cout << arr[n]<<"\n";
+    else cout <<"-1\n";
+
     return 0;
 }
