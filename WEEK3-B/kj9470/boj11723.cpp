@@ -21,24 +21,23 @@ int main() {
 
         if(com == "add"){
             cin >> n;
-            if(s.find(n) == s.end()) // 원소 중복이 없을 때
-                s.insert(n);
+            s.insert(n);
         }
         else if(com == "remove"){
             cin >> n;
-            if(s.find(n) != s.end()) // 원소가 있을 때
+            if(s.count(n)) // 원소가 있을 때
                 s.erase(n);
         }
         else if(com == "check"){
             cin >> n;
-            if(s.find(n) != s.end()) // 원소가 있을 때
+            if(s.count(n)) // 원소가 있을 때
                 cout << 1 << "\n";
             else // 원소가 없을 때
                 cout << 0 << "\n";
         }
         else if(com == "toggle"){
             cin >> n;
-            if(s.find(n) != s.end()) // 원소가 있을 때
+            if(s.count(n)) // 원소가 있을 때
                 s.erase(n); // 삭제
             else // 원소가 없을 때
                 s.insert(n); // 삽입
