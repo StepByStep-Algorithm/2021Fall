@@ -4,16 +4,17 @@ typedef pair<int, int> ii;
 typedef pair<ii, int> iii;
 int N, M;
 queue<iii> q;
-int visited[1000][1000][2]; //visited는 해당 정점까지의 최단경로를 저장하며, 2는 오는 동안 벽을 부순 세계와 안 부순 세계로 나누는 역할
-int _map[1000][1000];
+int visited[1000][1000][2] = {
+    0,
+}; //visited는 해당 정점까지의 최단경로를 저장하며, 2는 오는 동안 벽을 부순 세계와 안 부순 세계로 나누는 역할
+int _map[1000][1000] = {
+    0,
+};
 void printArray(int a[][1000]);
 void BFS();
 int main()
 {
 
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
     cin >> N >> M;
     for (int i = 0; i < N; i++)
     {
@@ -59,11 +60,10 @@ void BFS()
         {
             int nx = tmp.first.first + dx[i];
             int ny = tmp.first.second + dy[i];
+            if ((nx < 0) || (ny < 0) || (nx >= N) || (ny >= M))
+                continue;
             if (visited[nx][ny][tmp.second] == 0)
             {
-                if ((nx < 0) || (ny < 0) || (nx >= N) || (ny >= M))
-                    continue;
-
                 //해당 공간이 비었다면 기존 벽뚫기 여부 그대로 가지고 거리만 +1
                 if (_map[nx][ny] == 0)
                 {
