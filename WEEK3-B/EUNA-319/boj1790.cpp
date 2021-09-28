@@ -1,34 +1,33 @@
 #include <iostream>
-#include <cstring>
 using namespace std;
-bool checkNum[21];
+
+int length(unsigned int a);
+
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie();
-    int n;
-    cin>>n;
-    for(int i=0;i<n;i++) {
-        int x;
-        string str;
-        cin>>str;
-        if (str=="add") {
-            cin>>x;
-            checkNum[x]=true;
-        } else if (str=="remove") {
-            cin>>x;
-            checkNum[x]=false;
-        } else if (str=="check") {
-            cin>>x;
-            checkNum[x] ? (puts("1")) : (puts("0"));
-        } else if (str=="toggle") {
-            cin>>x;
-            checkNum[x] ? (checkNum[x]=false) : (checkNum[x]=true);
-        } else if (str=="all") {
-            memset(checkNum, true, sizeof(checkNum));
-        } else {
-            memset(checkNum, false, sizeof(checkNum));
-        }
+    int n,k,len=0,i,j;
+    cin>>n>>k;
+
+    for(i=1;i<=n;i++) {
+        len += length(i);
+        if (len >= k) break;
     }
-    return 0;
+    if(len == k){
+        cout<<i%10;
+    }
+    else if(k>len) cout<< -1;
+    else{
+        for(j=0; j<len-k; j++){
+            i /= 10;
+        }
+        cout<<i%10;
+    }
 }
 
+int length(unsigned int a){
+    int sum=0;
+    while(a>0){
+        sum++;
+        a/=10;
+    }
+    return sum;
+}
