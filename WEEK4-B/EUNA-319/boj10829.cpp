@@ -1,19 +1,18 @@
 #include <iostream>
-#include <stack>
-
 using  namespace std;
 
+void to_bin(long number) {
+    if (number == 0 || number == 1) {
+        cout << number;
+    }
+    else {
+        to_bin(number / 2);
+        cout << number % 2;
+    }
+}
+
 int main() {
-    stack <int> s;
     long a;
     cin>>a;
-    do{
-        s.push(a%2);
-        a/=2;
-    }while(a!=0);
-
-    do{
-        cout<<s.top();
-        s.pop();
-    }while(!s.empty());
+    to_bin(a);
 }
