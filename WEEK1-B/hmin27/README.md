@@ -1,6 +1,6 @@
-#week01
+# week01
 
-#boj11279
+# boj11279
 
 1. Priority Queue 우선순위 큐
    = queue with priority for pop
