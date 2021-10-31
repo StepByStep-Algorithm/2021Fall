@@ -14,4 +14,3 @@
 ## 예시
 병합정렬
 제곱계산-for문으로 8번 돌리는 것이 아니라 2, 4, 8이렇게 올라감.
-[ Boj14601.pdf](https://github.com/zhdhfhd33/2021Fall/files/7448261/Boj14601.pdf)
