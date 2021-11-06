@@ -4,8 +4,8 @@
 using namespace std;
 
 stack<int> bin;
-int N;
-void makeBin(int N);
+long long N;
+void makeBin(long long N);
 
 int main(){
     cin >> N;
@@ -21,7 +21,7 @@ int main(){
     return 0;
 }
 
-void makeBin(int N){
+void makeBin(long long N){
     if(N == 0) return;
     
     bin.push(N % 2);
