@@ -1,38 +1,37 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
-int num, temp, call;
+int call;
 
-int is3(int N);
+void cutNadd(string& digits);
 
 int main(){
-    cin >> num;
+    string digits;
+    cin >> digits;
+
     call = 0;
-    
-    int isMultipleof3 = is3(num);
+    cutNadd(digits);
 
     cout << call << "\n";
-    if(isMultipleof3 == 1) cout << "YES\n";
-    else cout << "NO\n";
+    if(digits[0] % 3 == 0) cout << "YES";
+    else cout << "NO";
 
     return 0;
 }
 
-int is3(int N){
-    temp = 0;
+void cutNadd(string& digits){
+    if(digits.length() == 1) return;
 
-    if(N < 10){
-        if ( N == 3 || N == 6 || N == 9 ) return 1;
-        else return 0;
-    }
+    int sum = 0;
+    for (int i = 0 ; i < digits.length() ; i++) sum += digits[i] - '0';
 
-    while(N > 0){
-        temp += N % 10;
-        N /=10;
-    }
+    string newdigits;
+
+    do{
+        newdigits += (sum % 10) + '0'; sum /= 10;
+    }while(sum > 0);
     
     call++;
-    is3(temp);
-
-    return -1;
+    cutNadd(newdigits);
 }
