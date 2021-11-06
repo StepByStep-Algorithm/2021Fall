@@ -17,7 +17,10 @@ int main(){
     cin >> M;
 
     for(int i = 0 ; i < M ; i++){
-        cin >> oper >> x;
+        cin >> oper;
+        if(oper != "all" && oper != "empty"){
+            cin >> x;
+        }
 
         if(oper =="add"){
             S.insert(x);
